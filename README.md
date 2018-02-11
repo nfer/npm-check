@@ -205,6 +205,11 @@ npmCheck(options)
 * Ignore `dependencies` and only check `devDependencies`.
 * default is `false`
 
+#### `majorOnly`
+
+* List major update only.
+* default is `false`
+
 #### `ignore`
 
 * Ignore dependencies that match specified glob.
