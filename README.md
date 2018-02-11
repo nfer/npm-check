@@ -210,6 +210,11 @@ npmCheck(options)
 * List major update only.
 * default is `false`
 
+#### `notMajor`
+
+* DO NOT List major update.
+* default is `false`
+
 #### `ignore`
 
 * Ignore dependencies that match specified glob.
