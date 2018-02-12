@@ -64,6 +64,8 @@ Options
   -d, --dev-only        Look at devDependencies only (skip dependencies).
   -i, --ignore          Ignore dependencies based on succeeding glob.
   -E, --save-exact      Save exact version (x.y.z) instead of caret (^x.y.z) in package.json.
+  --major-only          List Major update only.
+  --not-major           DO NOT List major update.
   --specials            List of depcheck specials to include in check for unused dependencies.
   --no-color            Force or disable color output.
   --no-emoji            Remove emoji support. No emoji in default in CI environments.
@@ -144,6 +146,14 @@ Ignore dependencies that match specified glob.
 Install packages using `--save-exact`, meaning exact versions will be saved in package.json.
 
 Applies to both `dependencies` and `devDependencies`.
+
+#### `--major-only`
+
+List Major update only.
+
+#### `--not-major`
+
+DO NOT List major update.
 
 #### `--specials`
 
