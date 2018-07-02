@@ -9,24 +9,6 @@ npm-check
 
 <img width="796" alt="npm-check -u" src="https://cloud.githubusercontent.com/assets/51505/9569917/96947fea-4f48-11e5-9783-2d78077256f2.png">
 
-### Features
-
-* Tells you what's out of date.
-* Provides a link to the package's documentation so you can decide if you want the update.
-* Kindly informs you if a dependency is not being used in your code.
-* Works on your globally installed packages too, via `-g`.
-* **Interactive Update** for less typing and fewer typos, via `-u`.
-* Supports public and private [@scoped/packages](https://docs.npmjs.com/getting-started/scoped-packages).
-* Supports ES6-style [`import from`](http://exploringjs.com/es6/ch_modules.html) syntax.
-* Upgrades your modules using your installed version of npm, including the new `npm@3`, so dependencies go where you expect them.
-* Works with any public npm registry, [private registries](https://www.npmjs.com/enterprise), and alternate registries like [Sinopia](https://github.com/rlidwka/sinopia).
-* Does not query registries for packages with `private: true` in their package.json.
-* Emoji in a command-line app, because command-line apps can be fun too.
-* Works with `npm@2` and `npm@3`, as well as newer alternative installers like `ied` and `pnpm`.
-
-### Requirements
-* Node >= 0.11.
-
 ### On the command line
 
 This is the easiest way to use `npm-check`.
@@ -45,8 +27,6 @@ $ npm-check
 
 The result should look like the screenshot, or something nice when your packages are all up-to-date and in use.
 
-When updates are required it will return a non-zero response code that you can use in your CI tools.
-
 ### Options
 
 ```
@@ -57,59 +37,27 @@ Path
   Where to check. Defaults to current directory. Use -g for checking global modules.
 
 Options
-  -u, --update          Interactive update.
   -g, --global          Look at global modules.
   -p, --production      Skip devDependencies.
   -d, --dev-only        Look at devDependencies only (skip dependencies).
   -i, --ignore          Ignore dependencies based on succeeding glob.
-  -E, --save-exact      Save exact version (x.y.z) instead of caret (^x.y.z) in package.json.
   --specials            List of depcheck specials to include in check for unused dependencies.
   --no-color            Force or disable color output.
   --no-emoji            Remove emoji support. No emoji in default in CI environments.
   --debug               Show debug output. Throw in a gist when creating issues on github.
 
 Examples
-  $ npm-check           # See what can be updated, what isn't being used.
+  $ npm-check           # See what isn't being used.
   $ npm-check ../foo    # Check another path.
-  $ npm-check -gu       # Update globally installed modules by picking which ones to upgrade.
 ```
 
 ![npm-check-u](https://cloud.githubusercontent.com/assets/51505/9569912/8c600cd8-4f48-11e5-8757-9387a7a21316.gif)
-
-#### `-u, --update`
-
-Show an interactive UI for choosing which modules to update.
-
-Automatically updates versions referenced in the `package.json`.
-
-_Based on recommendations from the `npm` team, `npm-check` only updates using `npm install`, not `npm update`.
-To avoid using more than one version of `npm` in one directory, `npm-check` will automatically install updated modules
-using the version of `npm` installed globally._
-
-<img width="669" alt="npm-check -g -u" src="https://cloud.githubusercontent.com/assets/51505/9569921/9ca3aeb0-4f48-11e5-95ab-6fdb88124007.png">
-
-##### Update using [ied](https://github.com/alexanderGugel/ied) or [pnpm](https://github.com/rstacruz/pnpm)
-
-Set environment variable `NPM_CHECK_INSTALLER` to the name of the installer you wish to use.
-
-```bash
-NPM_CHECK_INSTALLER=pnpm npm-check -u
-## pnpm install --save-dev foo@version --color=always
-```
-
-You can also use this for dry-run testing:
-
-```bash
-NPM_CHECK_INSTALLER=echo npm-check -u
-```
 
 #### `-g, --global`
 
 Check the versions of your globally installed packages.
 
 If the value of `process.env.NODE_PATH` is set, it will override the default path of global node_modules returned by package [`global-modules`](https://www.npmjs.com/package/global-modules).
-
-_Tip: Use `npm-check -u -g` to do a safe interactive update of global modules, including npm itself._
 
 #### `-p, --production`
 
@@ -128,12 +76,6 @@ This option will let it ignore outdated and unused checks for packages listed as
 Ignore dependencies that match specified glob.
 
 `$ npm-check -i babel-*` will ignore all dependencies starting with 'babel-'.
-
-#### `-E, --save-exact`
-
-Install packages using `--save-exact`, meaning exact versions will be saved in package.json.
-
-Applies to both `dependencies` and `devDependencies`.
 
 #### `--specials`
 
@@ -168,11 +110,6 @@ npmCheck(options)
   .then(currentState => console.log(currentState.get('packages')));
 ```
 
-#### `update`
-
-* Interactive update.
-* default is `false`
-
 #### `global`
 
 * Check global modules.
@@ -194,11 +131,6 @@ npmCheck(options)
 
 * Ignore dependencies that match specified glob.
 * default is `[]`
-
-#### `saveExact`
-
-* Update package.json with exact version `x.y.z`  instead of semver range `^x.y.z`.
-* default is `false`
 
 #### `debug`
 
