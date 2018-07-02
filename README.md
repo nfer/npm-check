@@ -1,37 +1,26 @@
-npm-check
-=========
-[![Build Status](https://travis-ci.org/dylang/npm-check.svg?branch=master)](https://travis-ci.org/dylang/npm-check)
-[![NPM version](https://badge.fury.io/js/npm-check.svg)](http://badge.fury.io/js/npm-check)
-[![Dependency Status](https://img.shields.io/david/dylang/npm-check.svg)](https://david-dm.org/dylang/npm-check)
-[![npm](https://img.shields.io/npm/dm/npm-check.svg?maxAge=2592000)]()
+npm-check-unused
 
-> Check for outdated, incorrect, and unused dependencies.
-
-<img width="796" alt="npm-check -u" src="https://cloud.githubusercontent.com/assets/51505/9569917/96947fea-4f48-11e5-9783-2d78077256f2.png">
+> Check for unused dependencies.
 
 ### On the command line
 
-This is the easiest way to use `npm-check`.
+This is the easiest way to use `npm-check-unused`.
 
 ### Install
 ```bash
-$ npm install -g npm-check
+$ npm install -g npm-check-unused
 ```
 
 ### Use
 ```bash
-$ npm-check
+$ npm-check-unused
 ```
-
-<img width="882" alt="npm-check" src="https://cloud.githubusercontent.com/assets/51505/9569919/99c2412a-4f48-11e5-8c65-e9b6530ee991.png">
-
-The result should look like the screenshot, or something nice when your packages are all up-to-date and in use.
 
 ### Options
 
 ```
 Usage
-  $ npm-check <path> <options>
+  $ npm-check-unused <path> <options>
 
 Path
   Where to check. Defaults to current directory.
@@ -41,48 +30,39 @@ Options
   -d, --dev-only        Look at devDependencies only (skip dependencies).
   -i, --ignore          Ignore dependencies based on succeeding glob.
   --specials            List of depcheck specials to include in check for unused dependencies.
-  --no-color            Force or disable color output.
   --no-emoji            Remove emoji support. No emoji in default in CI environments.
   --debug               Show debug output. Throw in a gist when creating issues on github.
 
 Examples
-  $ npm-check           # See what isn't being used.
-  $ npm-check ../foo    # Check another path.
+  $ npm-check-unused           # See what isn't being used.
+  $ npm-check-unused ../foo    # Check another path.
 ```
-
-![npm-check-u](https://cloud.githubusercontent.com/assets/51505/9569912/8c600cd8-4f48-11e5-8757-9387a7a21316.gif)
 
 #### `-p, --production`
 
 By default `npm-check` will look at packages listed as `dependencies` and `devDependencies`.
 
-This option will let it ignore outdated and unused checks for packages listed as `devDependencies`.
+This option will let it ignore packages listed as `devDependencies`.
 
 #### `-d, --dev-only`
 
 Ignore `dependencies` and only check `devDependencies`.
 
-This option will let it ignore outdated and unused checks for packages listed as `dependencies`.
+This option will let it ignore packages listed as `dependencies`.
 
 #### `-i, --ignore`
 
 Ignore dependencies that match specified glob.
 
-`$ npm-check -i babel-*` will ignore all dependencies starting with 'babel-'.
+`$ npm-check-unused -i babel-*` will ignore all dependencies starting with 'babel-'.
 
 #### `--specials`
 
 Check special (e.g. config) files when looking for unused dependencies.
 
-`$ npm-check --specials=bin,webpack` will look in the `scripts` section of package.json and in webpack config.
+`$ npm-check-unused --specials=bin,webpack` will look in the `scripts` section of package.json and in webpack config.
 
 See [https://github.com/depcheck/depcheck#special](https://github.com/depcheck/depcheck#special) for more information.
-
-#### `--color, --no-color`
-
-Enable or disable color support.
-
-By default `npm-check` uses colors if they are available.
 
 #### `--emoji, --no-emoji`
 
@@ -171,33 +151,10 @@ You will also see this if you use `--debug` on the command line.
 * [npm outdated](https://www.npmjs.com/doc/cli/npm-outdated.html) - awkward output, requires --depth=0 to be grokable.
 * [david](https://github.com/alanshaw/david) - does not work with private registries.
 * [update-notifier](https://github.com/yeoman/update-notifier) - for single modules, not everything in package.json.
-* [depcheck](https://github.com/depcheck/depcheck) - only part of the puzzle. npm-check uses depcheck.
-
-### About the Author
-
-Hi! Thanks for checking out this project! My name is **Dylan Greene**. When not overwhelmed with my two young kids I enjoy contributing
-to the open source community. I'm also a tech lead at [Opower](https://opower.com/). [![@dylang](https://img.shields.io/badge/github-dylang-green.svg)](https://github.com/dylang) [![@dylang](https://img.shields.io/badge/twitter-dylang-blue.svg)](https://twitter.com/dylang)
-
-Here's some of my other Node projects:
-
-| Name | Description | npm&nbsp;Downloads |
-|---|---|---|
-| [`grunt‑notify`](https://github.com/dylang/grunt-notify) | Automatic desktop notifications for Grunt errors and warnings. Supports OS X, Windows, Linux. | [![grunt-notify](https://img.shields.io/npm/dm/grunt-notify.svg?style=flat-square)](https://www.npmjs.org/package/grunt-notify) |
-| [`shortid`](https://github.com/dylang/shortid) | Amazingly short non-sequential url-friendly unique id generator. | [![shortid](https://img.shields.io/npm/dm/shortid.svg?style=flat-square)](https://www.npmjs.org/package/shortid) |
-| [`space‑hogs`](https://github.com/dylang/space-hogs) | Discover surprisingly large directories from the command line. | [![space-hogs](https://img.shields.io/npm/dm/space-hogs.svg?style=flat-square)](https://www.npmjs.org/package/space-hogs) |
-| [`rss`](https://github.com/dylang/node-rss) | RSS feed generator. Add RSS feeds to any project. Supports enclosures and GeoRSS. | [![rss](https://img.shields.io/npm/dm/rss.svg?style=flat-square)](https://www.npmjs.org/package/rss) |
-| [`grunt‑prompt`](https://github.com/dylang/grunt-prompt) | Interactive prompt for your Grunt config using console checkboxes, text input with filtering, password fields. | [![grunt-prompt](https://img.shields.io/npm/dm/grunt-prompt.svg?style=flat-square)](https://www.npmjs.org/package/grunt-prompt) |
-| [`xml`](https://github.com/dylang/node-xml) | Fast and simple xml generator. Supports attributes, CDATA, etc. Includes tests and examples. | [![xml](https://img.shields.io/npm/dm/xml.svg?style=flat-square)](https://www.npmjs.org/package/xml) |
-| [`changelog`](https://github.com/dylang/changelog) | Command line tool (and Node module) that generates a changelog in color output, markdown, or json for modules in npmjs.org's registry as well as any public github.com repo. | [![changelog](https://img.shields.io/npm/dm/changelog.svg?style=flat-square)](https://www.npmjs.org/package/changelog) |
-| [`grunt‑attention`](https://github.com/dylang/grunt-attention) | Display attention-grabbing messages in the terminal | [![grunt-attention](https://img.shields.io/npm/dm/grunt-attention.svg?style=flat-square)](https://www.npmjs.org/package/grunt-attention) |
-| [`observatory`](https://github.com/dylang/observatory) | Beautiful UI for showing tasks running on the command line. | [![observatory](https://img.shields.io/npm/dm/observatory.svg?style=flat-square)](https://www.npmjs.org/package/observatory) |
-| [`anthology`](https://github.com/dylang/anthology) | Module information and stats for any @npmjs user | [![anthology](https://img.shields.io/npm/dm/anthology.svg?style=flat-square)](https://www.npmjs.org/package/anthology) |
-| [`grunt‑cat`](https://github.com/dylang/grunt-cat) | Echo a file to the terminal. Works with text, figlets, ascii art, and full-color ansi. | [![grunt-cat](https://img.shields.io/npm/dm/grunt-cat.svg?style=flat-square)](https://www.npmjs.org/package/grunt-cat) |
-
-_This list was generated using [anthology](https://github.com/dylang/anthology)._
+* [depcheck](https://github.com/depcheck/depcheck) - only part of the puzzle. npm-check-unused uses depcheck.
 
 ### License
-Copyright (c) 2016 Dylan Greene, contributors.
+Copyright (c) 2018 Nfer Zhuang, contributors.
 
 Released under the [MIT license](https://tldrlegal.com/license/mit-license).
 
