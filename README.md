@@ -34,10 +34,9 @@ Usage
   $ npm-check <path> <options>
 
 Path
-  Where to check. Defaults to current directory. Use -g for checking global modules.
+  Where to check. Defaults to current directory.
 
 Options
-  -g, --global          Look at global modules.
   -p, --production      Skip devDependencies.
   -d, --dev-only        Look at devDependencies only (skip dependencies).
   -i, --ignore          Ignore dependencies based on succeeding glob.
@@ -52,12 +51,6 @@ Examples
 ```
 
 ![npm-check-u](https://cloud.githubusercontent.com/assets/51505/9569912/8c600cd8-4f48-11e5-8757-9387a7a21316.gif)
-
-#### `-g, --global`
-
-Check the versions of your globally installed packages.
-
-If the value of `process.env.NODE_PATH` is set, it will override the default path of global node_modules returned by package [`global-modules`](https://www.npmjs.com/package/global-modules).
 
 #### `-p, --production`
 
@@ -109,12 +102,6 @@ const npmCheck = require('npm-check');
 npmCheck(options)
   .then(currentState => console.log(currentState.get('packages')));
 ```
-
-#### `global`
-
-* Check global modules.
-* default is `false`
-* `cwd` is automatically set with this option.
 
 #### `ignoreDev`
 
