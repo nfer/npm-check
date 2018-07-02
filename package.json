@@ -1,7 +1,7 @@
 {
-  "name": "npm-check",
+  "name": "npm-check-unused",
   "version": "5.5.2",
-  "description": "Check for outdated, incorrect, and unused dependencies.",
+  "description": "Check unused dependencies.",
   "main": "lib",
   "engines": {
     "node": ">=0.11.0"
@@ -27,11 +27,11 @@
     }
   },
   "bin": {
-    "npm-check": "bin/cli.js"
+    "npm-check-unused": "bin/cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dylang/npm-check.git"
+    "url": "https://github.com/nfer/npm-check-unused.git"
   },
   "keywords": [
     "npm",
@@ -51,14 +51,14 @@
     "devDependencies"
   ],
   "author": {
-    "name": "Dylan Greene",
-    "email": "dylang@gmail.com"
+    "name": "Nfer Zhuang",
+    "email": "nfer.zhuang@gmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dylang/npm-check/issues"
+    "url": "https://github.com/nfer/npm-check-unused/issues"
   },
-  "homepage": "https://github.com/dylang/npm-check",
+  "homepage": "https://github.com/nfer/npm-check-unused",
   "files": [
     "bin",
     "lib",
