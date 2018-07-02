@@ -59,7 +59,6 @@ Path
 Options
   -u, --update          Interactive update.
   -g, --global          Look at global modules.
-  -s, --skip-unused     Skip check for unused packages.
   -p, --production      Skip devDependencies.
   -d, --dev-only        Look at devDependencies only (skip dependencies).
   -i, --ignore          Ignore dependencies based on succeeding glob.
@@ -111,15 +110,6 @@ Check the versions of your globally installed packages.
 If the value of `process.env.NODE_PATH` is set, it will override the default path of global node_modules returned by package [`global-modules`](https://www.npmjs.com/package/global-modules).
 
 _Tip: Use `npm-check -u -g` to do a safe interactive update of global modules, including npm itself._
-
-#### `-s, --skip-unused`
-
-By default `npm-check` will let you know if any of your modules are not being used by looking at `require` statements
-in your code.
-
-This option will skip that check.
-
-This is enabled by default when using `global` or `update`.
 
 #### `-p, --production`
 
