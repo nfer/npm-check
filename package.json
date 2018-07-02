@@ -1,6 +1,6 @@
 {
   "name": "npm-check-unused",
-  "version": "5.5.2",
+  "version": "6.0.0",
   "description": "Check unused dependencies.",
   "main": "lib",
   "scripts": {
@@ -16,16 +16,9 @@
   },
   "keywords": [
     "npm",
-    "outdated",
     "dependencies",
     "unused",
-    "changelog",
     "check",
-    "api",
-    "interactive",
-    "cli",
-    "safe",
-    "updating",
     "devDependencies"
   ],
   "author": {
