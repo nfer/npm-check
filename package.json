@@ -13,17 +13,6 @@
     "watch": "babel lib --out-dir lib-es5 --watch",
     "prepublish": "npm run transpile"
   },
-  "xo": {
-    "space": 4,
-    "rules": {
-      "no-warning-comments": [
-        0
-      ],
-      "global-require": [
-        0
-      ]
-    }
-  },
   "bin": {
     "npm-check-unused": "bin/cli.js"
   },
@@ -98,7 +87,6 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "xo": "^0.13.0"
+    "eslint-plugin-standard": "^3.1.0"
   }
 }
