@@ -179,11 +179,6 @@ npmCheck(options)
 * default is `false`
 * `cwd` is automatically set with this option.
 
-#### `skipUnused`
-
-* Skip checking for unused packages.
-* default is `false`
-
 #### `ignoreDev`
 
 * Ignore `devDependencies`.

@@ -55,7 +55,7 @@
     "inquirer": "^6.0.0",
     "is-ci": "^1.0.8",
     "lodash": "^4.7.0",
-    "meow": "^3.7.0",
+    "meow": "^5.0.0",
     "merge-options": "^1.0.1",
     "minimatch": "^3.0.2",
     "node-emoji": "^1.0.3",
