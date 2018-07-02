@@ -6,8 +6,6 @@
   "engines": {
     "node": ">=0.11.0"
   },
-  "types": "./index.d.ts",
-  "typings": "./index.d.ts",
   "scripts": {
     "lint": "xo ./lib/*.js",
     "test": "npm run lint && ./bin/cli.js || echo Exit Status: $?.",
